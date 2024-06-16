@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Attendance</title>
+  </head>
+  <body>
+    <h1>Attendance</h1>
+    <form action="/attendance" method="POST">
+      <% students.forEach(student => { %>
+        <div>
+          <label>
+            <%= student.name %>
+            <input type="checkbox" name="studentIds" value="<%= student.id %>" <% if (student.isPresent) { %>checked<% } %>>
+          </label>
+        </div>
+      <% }) %>
+      <button type="submit" name="isPresent" value="true">Add Attendance (Present)</button>
+      <button type="submit" name="isPresent" value="false">Add Attendance (Absent)</button>
+    </form>
+  </body>
+</html>
